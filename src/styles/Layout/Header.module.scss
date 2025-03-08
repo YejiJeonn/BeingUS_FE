@@ -1,0 +1,33 @@
+.headAll {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #EFE7DD;
+    height: 80px;
+}
+
+.title {
+    font-size: 2em;
+    color: #333;
+    margin-left: 5%;
+    margin-right: -5%;
+}
+
+.nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 30%;
+    gap: 10%;
+    color: #44403A;
+}
+
+.accountContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 11%;
+    margin-right: 5%;
+    margin-left: -5%;
+    color: #7D7264;
+}
