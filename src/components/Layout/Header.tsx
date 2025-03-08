@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from '../../styles/Layout/Header.module.scss';
+import {Link} from "react-router-dom";
 
 const Header = () => {
 
@@ -14,8 +15,8 @@ const Header = () => {
             </nav>
 
             <div className={styles.accountContainer}>
-                <p>로그인</p>
-                <p>회원가입</p>
+                <Link to="/login" className={styles.account}>로그인</Link>
+                <Link to="/signup" className={styles.account}>회원가입</Link>
             </div>
         </header>
     );
