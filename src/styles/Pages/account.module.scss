@@ -4,25 +4,17 @@
     align-items: center;
 }
 
-.formContainer{
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
 .inputGroup {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px; /* label과 input 사이 간격 */
+  gap: 15px; /* label과 input 사이 간격 */
 }
 
 .formTitle{
   margin-top: 30px;
   margin-bottom: 30px;
 }
-
-.inputGroup
 
 .frmLogin{
   height: 250px;
@@ -32,6 +24,10 @@
   border-radius: 7px;
 }
 
+.frmSignup{
+    padding-top: 20px;
+}
+
 .acBtn{
     display: inline-block;
     justify-content: center;
@@ -39,7 +35,7 @@
     margin-top: 20px;
 }
 
-#btnLogin{
+.btnLogin{
   border: none;
   background-color: #B4AA9C;
   width: 350px;
@@ -66,4 +62,8 @@
   &:hover{
     cursor: pointer;
   }
+}
+
+.btnHidden{
+  visibility: hidden;
 }

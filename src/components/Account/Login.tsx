@@ -25,7 +25,8 @@ const Login = () => {
                     <br/>
                     <br/>
                     <div className={styles.acBtn}>
-                        <button type="submit" id={styles.btnLogin}>로그인</button>
+                        <button type="submit" className={styles.btnLogin}>로그인</button>
+                        <br/>
                         <button onClick={() => navigate("/signup")} id={styles.btnSignup}>회원가입</button>
                     </div>
                 </form>

@@ -5,46 +5,77 @@ const Singup = () => {
         <div>
             <h2 className={styles.formTitle}>회원가입</h2>
 
-            <form className={styles.formContainer}>
-                <div className={styles.inputGroup}>
-                    <label>아이디</label>
-                    <input type="text" size={38} name="id"/>
-                </div>
+            <div className={styles.formBox}>
 
-                <div className={styles.inputGroup}>
-                    <label>비밀번호</label>
-                    <input type="password" size={38} name="pw"/>
-                </div>
+                <form className={styles.frmSignup}>
+                    <div>
+                        <label>아이디</label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="text" size={38} name="id"/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button>중복확인</button>
+                    </div>
+                    <br/>
+                    <br/>
+                    <div>
+                        <label>비밀번호</label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="password" size={38} name="pw"/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button className={styles.btnHidden}>중복확인</button>
+                    </div>
+                    <br/>
+                    <div>
+                        <label>비밀번호 확인</label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="password" size={38} name="checkPw"/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button className={styles.btnHidden}>중복확인</button>
+                    </div>
+                    <br/>
+                    <br/>
+                    <div>
+                        <label>이름</label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="text" size={38} name="name"/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button className={styles.btnHidden}>중복확인</button>
+                    </div>
+                    <br/>
+                    <br/>
+                    <div>
+                        <label>전화번호</label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="text" size={38} name="email"/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button>인증번호</button>
+                    </div>
+                    <br/>
+                    <div>
+                        <label> 인증번호</label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="text" size={38} name="phone"/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button>확인</button>
+                    </div>
+                    <br/>
+                    <br/>
+                    <div>
+                        <label>추천인 아이디</label>
+                        &nbsp;&nbsp;&nbsp;
+                        <input type="text" size={38} name="email"/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button>확인</button>
+                    </div>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <div className={styles.acBtn}>
+                        <button type="submit" className={styles.btnLogin}>회원가입</button>
+                    </div>
+                </form>
 
-                <div className={styles.inputGroup}>
-                    <label>비밀번호 확인</label>
-                    <input type="password" size={38} name="checkPw"/>
-                </div>
-
-                <div className={styles.inputGroup}>
-                    <label>이름</label>
-                    <input type="text" size={38} name="name"/>
-                </div>
-
-                <div className={styles.inputGroup}>
-                    <label>전화번호</label>
-                    <input type="text" size={38} name="email"/>
-                </div>
-
-                <div className={styles.inputGroup}>
-                    <label> 인증번호</label>
-                    <input type="text" size={38} name="phone"/>
-                </div>
-
-                <div className={styles.inputGroup}>
-                    <label>추천인 아이디</label>
-                    <input type="text" size={38} name="email"/>
-                </div>
-
-                <div className={styles.acBtn}>
-                    <button type="submit" id={styles.btnLogin}>회원가입</button>
-                </div>
-            </form>
+            </div>
         </div>
     );
 };
