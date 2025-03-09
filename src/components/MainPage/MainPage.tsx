@@ -9,7 +9,7 @@ const MainPage = () => {
         <div className={styles.mainPage}>
             <p className={styles.slogan}>우리가 되는 순간을 가장 아름답게, <strong>Being US</strong>와 함께 행복한 순간을 함께하세요.</p>
 
-            <div className={styles.notice}>
+            <div className={styles.notice} onClick={() => navigate("/tutorial")}>
                 <p>안내문</p>
             </div>
 
@@ -31,7 +31,7 @@ const MainPage = () => {
             <div className={styles.list}>
                 <div className={styles.listTitle}>
                     <h2>| Top5</h2>
-                    <button className={styles.moreBtn}>더보기 &gt;</button>
+                    <button className={styles.moreBtn} onClick={() => navigate("/ranking")}>더보기 &gt;</button>
                 </div>
 
                 <div className={styles.listContent}>

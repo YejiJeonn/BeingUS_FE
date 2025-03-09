@@ -25,7 +25,7 @@ function AppContent() {
                 <Route path="/kakao" element={<KakaoLogin />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/all" element={<AllTemplate />} />
-                <Route path="/qa" element={<RankingPage />} />
+                <Route path="/ranking" element={<RankingPage />} />
                 <Route path="/tutorial" element={<TutorialPage />} />
                 <Route path="/qna" element={<QnAPage />} />
             </Routes>
