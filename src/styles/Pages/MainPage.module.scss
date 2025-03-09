@@ -35,6 +35,12 @@
   border-radius: 7px;
   height: 25px;
   width: 60px;
+  
+  &:hover{
+    background-color: #44403A;
+    color: #D5CABC;
+    cursor: pointer;
+  }
 }
 
 .listContent{

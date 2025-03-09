@@ -8,6 +8,10 @@ import Header from './components/Layout/Header';
 import MainPage from './components/MainPage/MainPage';
 import Login from "./components/Account/Login";
 import Signup from "./components/Account/Singup";
+import AllTemplate from "./components/Pages/AllTemplate";
+import TutorialPage from "./components/Pages/TutorialPage";
+import QnAPage from "./components/Pages/QnAPage";
+import RankingPage from "./components/Pages/RankingPage";
 
 function AppContent() {
   return (
@@ -18,6 +22,10 @@ function AppContent() {
                 <Route path="/" element={<MainPage />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
+                <Route path="/all" element={<AllTemplate />} />
+                <Route path="/qa" element={<RankingPage />} />
+                <Route path="/tutorial" element={<TutorialPage />} />
+                <Route path="/qna" element={<QnAPage />} />
             </Routes>
         </main>
     </div>
