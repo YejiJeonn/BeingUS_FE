@@ -1,8 +1,32 @@
+import React, {useState} from "react";
 import styles from "../../styles/Pages/account.module.scss";
 import {useNavigate} from "react-router-dom";
 
-const Login = () => {
+function Login() {
     const navigate = useNavigate();
+    // const [userId, setUserId] = useState("");
+    // const [password, setPassword] = useState("");
+    //
+    // const handleChange = (event) => {
+    //     const {name, value} = event.target;
+    //
+    //     // 필드 이름에 따라 상태를 업데이트
+    //     if (name === "id") setUserId(value);
+    //     if (name === "pw") setPassword(value);
+    // };
+    //
+    // const handleSubmit =  async (event) => {
+    //     event.preventDefault();  // 폼 제출 시 새로고침 방지
+    //
+    //     const data ={
+    //       userId: userId,
+    //       password: password,
+    //     };
+    //
+    //     try{
+    //
+    //     }
+    // };
 
     return (
         <div>
@@ -33,6 +57,6 @@ const Login = () => {
             </div>
         </div>
     );
-};
+}
 
 export default Login;
