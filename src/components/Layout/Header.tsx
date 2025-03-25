@@ -16,11 +16,11 @@ const Header = () => {
             </nav>
 
             <div className={styles.accountContainer}>
-                <Link to="/kakao" className={styles.account}>로그인</Link>
+                <Link to="/kakao" className={styles.account}>
+                    <img src="/img/kakao_login_small.png" alt="kakao"/>
+                </Link>
                 {/*<img src="/images/line.png" alt="user" className={styles.line}/>*/}
                 {/*<p>username</p>*/}
-
-                <Link to="/signup" className={styles.account}>회원가입</Link>
                 {/*<p>로그아웃</p>*/}
             </div>
         </header>
