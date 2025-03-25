@@ -15,7 +15,7 @@ const Header = () => {
             </nav>
 
             <div className={styles.accountContainer}>
-                <Link to="/login" className={styles.account}>로그인</Link>
+                <Link to="/kakao" className={styles.account}>로그인</Link>
                 {/*<img src="/images/line.png" alt="user" className={styles.line}/>*/}
                 {/*<p>username</p>*/}
 
