@@ -21,6 +21,8 @@ const Header = () => {
                 </Link>
                 {/*<img src="/images/line.png" alt="user" className={styles.line}/>*/}
                 {/*<p>username</p>*/}
+
+                <Link to="/signup" className={styles.account}>회원가입</Link>
                 {/*<p>로그아웃</p>*/}
             </div>
         </header>
