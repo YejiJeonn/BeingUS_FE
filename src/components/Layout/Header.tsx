@@ -7,7 +7,7 @@ const Header = () => {
 
     return (
         <header className={styles.headAll}>
-            <p className={styles.title}>Being US</p>
+            <p className={styles.title}onClick={() => navigate("/")} >Being US</p>
 
             <nav className={styles.nav}>
                 <p id={styles.category}>카테고리</p>
