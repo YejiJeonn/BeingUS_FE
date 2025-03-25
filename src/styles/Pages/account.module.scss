@@ -4,13 +4,6 @@
     align-items: center;
 }
 
-.inputGroup {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px; /* label과 input 사이 간격 */
-}
-
 .formTitle{
   margin-top: 30px;
   margin-bottom: 30px;
@@ -26,6 +19,10 @@
 
 .frmSignup{
     padding-top: 20px;
+}
+
+.inputTitle{
+  text-align: left;
 }
 
 .acBtn{
