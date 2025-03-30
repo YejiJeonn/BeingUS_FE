@@ -6,6 +6,8 @@ import {Link, useNavigate} from "react-router-dom";
 const Header = () => {
     const navigate = useNavigate();
 
+    const accessToken = localStorage.getItem('accessToken');
+
     // 로그아웃
     const handleLogout = () => {
         try {
@@ -34,12 +36,13 @@ const Header = () => {
             </nav>
 
             <div className={styles.accountContainer}>
-                <Link to="/kakao/login" className={styles.account}>
-                    <img src="/img/kakao_login_small.png" alt="kakao"/>
-                </Link>
-                {/*<img src="/images/line.png" alt="user" className={styles.line}/>*/}
-                {/*<p>username</p>*/}
-                <p className={styles.logout} onClick={handleLogout}>로그아웃</p>
+                {!accessToken ? (
+                    <Link to="/kakao/login" className={styles.account}>
+                        <img src="/img/kakao_login_small.png" alt="kakao"/>
+                    </Link>
+                    ) : (
+                    <button className={styles.account} onClick={handleLogout}>로그아웃</button>
+                )}
             </div>
         </header>
     );
