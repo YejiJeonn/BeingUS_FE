@@ -1,9 +1,27 @@
 import React from 'react';
+import axios from 'axios';
 import styles from '../../styles/Layout/Header.module.scss';
 import {Link, useNavigate} from "react-router-dom";
 
 const Header = () => {
     const navigate = useNavigate();
+
+    // 로그아웃
+    const handleLogout = () => {
+        try {
+            const response = axios.post('https://kapi.kakao.com/v1/user/logout', {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+                }
+            });
+
+            localStorage.removeItem('accessToken');
+            alert("로그아웃 되었습니다.");
+            navigate("/");
+        }catch(error){
+            console.error("로그아웃 중 오류 발생:", error);
+        }
+    }
 
     return (
         <header className={styles.headAll}>
@@ -16,14 +34,12 @@ const Header = () => {
             </nav>
 
             <div className={styles.accountContainer}>
-                <Link to="/kakao" className={styles.account}>
+                <Link to="/kakao/login" className={styles.account}>
                     <img src="/img/kakao_login_small.png" alt="kakao"/>
                 </Link>
                 {/*<img src="/images/line.png" alt="user" className={styles.line}/>*/}
                 {/*<p>username</p>*/}
-
-                <Link to="/signup" className={styles.account}>회원가입</Link>
-                {/*<p>로그아웃</p>*/}
+                <p className={styles.logout} onClick={handleLogout}>로그아웃</p>
             </div>
         </header>
     );
