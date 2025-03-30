@@ -13,6 +13,7 @@ import TutorialPage from "./components/Pages/TutorialPage";
 import QnAPage from "./components/Pages/QnAPage";
 import RankingPage from "./components/Pages/RankingPage";
 import KakaoLogin from "./components/Account/KakaoLogin";
+import KakaoCallback from "./components/Account/KakaoCallback";
 
 function AppContent() {
   return (
@@ -22,7 +23,8 @@ function AppContent() {
             <Routes>
                 <Route path="/" element={<MainPage />} />
                 <Route path="/login" element={<Login />} />
-                <Route path="/kakao" element={<KakaoLogin />} />
+                <Route path="/kakao/login" element={<KakaoLogin />} />
+                <Route path="/kakao/callback" element={<KakaoCallback />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/all" element={<AllTemplate />} />
                 <Route path="/ranking" element={<RankingPage />} />
