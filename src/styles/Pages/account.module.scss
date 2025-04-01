@@ -1,0 +1,70 @@
+////// 카카오 로그인 //////
+
+
+//////////////
+.formBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formTitle{
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.frmLogin{
+  height: 250px;
+  width: 450px;
+  padding-top: 50px;
+  border: 1px solid #B4AA9C;
+  border-radius: 7px;
+}
+
+.frmSignup{
+    padding-top: 20px;
+}
+
+.inputTitle{
+  text-align: left;
+}
+
+.acBtn{
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.btnLogin{
+  border: none;
+  background-color: #B4AA9C;
+  width: 350px;
+  height: 35px;
+  border-radius: 7px;
+  color: #2E2A24;
+  font-size: 15px;
+  margin-bottom: 20px;
+
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+#btnSignup{
+  border: none;
+  background-color: #D9D9D9;
+  width: 350px;
+  height: 35px;
+  border-radius: 7px;
+  color: #676461;
+  font-size: 15px;
+
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+.btnHidden{
+  visibility: hidden;
+}

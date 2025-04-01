@@ -1,0 +1,53 @@
+.headAll {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #EFE7DD;
+    height: 60px;
+}
+
+.title {
+    font-size: 2em;
+    color: #333;
+    margin-left: 5%;
+    margin-right: -5%;
+    cursor: pointer;
+}
+
+.nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 30%;
+    gap: 10%;
+    color: #44403A;
+}
+
+#category{
+    &:hover{
+        color: #7D7264;
+        cursor: pointer;
+    }
+}
+
+#tutorial{
+    &:hover{
+        color: #7D7264;
+        cursor: pointer;
+    }
+}
+
+#qna{
+    &:hover{
+        color: #7D7264;
+        cursor: pointer;
+    }
+}
+
+.accountContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 11%;
+    color: #7D7264;
+}
