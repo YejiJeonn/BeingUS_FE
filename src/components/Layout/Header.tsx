@@ -40,14 +40,6 @@ const Header = () => {
                         <img src="/img/kakao_login_small.png" alt="kakao"/>
                     </Link>
                     <button className={styles.account} onClick={handleLogout}>로그아웃</button>
-
-                {/*{!accessToken ? (*/}
-                {/*    <Link to="/kakao/login" className={styles.account}>*/}
-                {/*        <img src="/img/kakao_login_small.png" alt="kakao"/>*/}
-                {/*    </Link>*/}
-                {/*) : (*/}
-                {/*    <button className={styles.account} onClick={handleLogout}>로그아웃</button>*/}
-                {/*)}*/}
             </div>
         </header>
     );
