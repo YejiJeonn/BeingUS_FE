@@ -18,6 +18,9 @@ const TemplateEditor = () => {
     const [cropPosition, setCropPosition] = useState<{ x: number, y: number }>({ x: 50, y: 50 });
     const [lockAspect, setLockAspect] = useState(true);
 
+    // 사진, draggable 영역 강제 맞춤
+    const [imageSize, setImageSize] = useState({ width: 200, height: 200 });
+
     const handleImageUpload = (e: ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
         if (!file) return;
@@ -25,8 +28,19 @@ const TemplateEditor = () => {
         const reader = new FileReader();
         reader.onload = () => {
             if (typeof reader.result === 'string') {
-                setImageSrc(reader.result);
-                setCroppedImage(null);
+                const dataUrl = reader.result as string;
+
+                const img = new Image();
+                img.src = reader.result;
+
+                img.onload = () => {
+                    const aspectRatio = img.width / img.height;
+                    const maxwidth = 200; // 원하는 초기 너비
+                    const calculateHeight = maxwidth / aspectRatio; // 비율에 맞춰 높이 계산
+
+                    setImageSize({ width: maxwidth, height: calculateHeight });
+                    setImageSrc(dataUrl);
+                };
             }
         };
         reader.readAsDataURL(file);
@@ -69,11 +83,6 @@ const TemplateEditor = () => {
         }, 'image/jpeg');
     };
 
-    const closeEvent = () => {
-        setImageSrc(null);
-        setCroppedImage(null);
-    };
-
     const dragStart = () => console.log("드래그 시작");
     const dragStop = (_e: any, d: any) => {
         console.log("드래그 종료", d.x, d.y);
@@ -81,9 +90,15 @@ const TemplateEditor = () => {
     };
 
     const resizeStart = () => console.log("리사이징 시작");
-    const resizeStop = (_e: any, _direction: any, ref: HTMLElement) => {
-        console.log("리사이징 종료", ref.offsetWidth, ref.offsetHeight);
+    const resizeStop = (_e: any, _direction: any, ref: HTMLElement, _delta: any, _position: {x:number; y: number}) => {
         setCropSize({ width: ref.offsetWidth, height: ref.offsetHeight });
+
+        setImageSize({
+            width: ref.offsetWidth,
+            height: ref.offsetHeight
+        });
+
+        console.log("리사이징 종료", ref.offsetWidth, ref.offsetHeight);
     };
 
     const toggleDrag = () => {
@@ -93,12 +108,26 @@ const TemplateEditor = () => {
             handleCropComplete();
             setDragable(true);
         }
+    } ;
+
+    const closeEvent = () => {
+        setImageSrc(null);
+        setCroppedImage(null);
     };
+
+    const fillToTemplate = () => {
+        const wrapper = document.querySelector(`.${styles.templateImage}`) as HTMLElement;
+        if (wrapper) {
+            const { offsetWidth, offsetHeight } = wrapper;
+            setImageSize({ width: offsetWidth, height: offsetHeight });
+            setCropSize({ width: offsetWidth, height: offsetHeight });
+            setCropPosition({ x: 0, y: 0 });
+        }
+    };
+
 
     return (
         <div className={styles.editorWrapper}>
-            <h2>템플릿 편집기</h2>
-
             <div className={styles.toolbar}>
                 <button onClick={() => fileInputRef.current?.click()}>사진 업로드</button>
                 <button onClick={toggleDrag}>
@@ -130,7 +159,7 @@ const TemplateEditor = () => {
                                     ref={imgRef}
                                     src={imageSrc!}
                                     alt="crop"
-                                    style={{ width: cropSize.width, height: cropSize.height, objectFit: 'contain' }}
+                                    style={{ width: cropSize.width, height: cropSize.height, objectFit: 'fill' }}
                                 />
                             </ReactCrop>
                         </div>
@@ -138,12 +167,12 @@ const TemplateEditor = () => {
 
                     {dragable && (croppedImage || imageSrc) && (
                         <Rnd
-                            lockAspectRatio={true}
+                            lockAspectRatio={true} // true: 비율 고정 flase: 비율 자유
                             minWidth={100}
                             minHeight={100}
-                            size={cropSize}
+                            size={imageSize}
                             position={cropPosition}
-                            bounds="body"
+                            // bounds="body"    // 리사이징 범위 body로 제한
                             disableDragging={!dragable}
                             onDragStart={dragStart}
                             onDragStop={dragStop}
@@ -152,11 +181,14 @@ const TemplateEditor = () => {
                             style={{ zIndex: 10 }}
                         >
                             <div className={styles.imgWrapper}>
+                                <button onClick={fillToTemplate} className={styles.fillBtn}>
+                                    <FontAwesomeIcon icon={faExpandArrowsAlt}/>
+                                </button>
                                 <button onClick={closeEvent} className={styles.closeBtn}>
-                                    <FontAwesomeIcon icon={faTimes} />
+                                    <FontAwesomeIcon icon={faTimes}/>
                                 </button>
                                 <button className={styles.moveBtn}>
-                                    <FontAwesomeIcon icon={faExpandArrowsAlt} />
+                                    <FontAwesomeIcon icon={faExpandArrowsAlt}/>
                                 </button>
                                 <img
                                     src={croppedImage || imageSrc!}
