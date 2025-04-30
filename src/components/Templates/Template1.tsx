@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import TemplateEditor from '../Pages/TemplateEditor'; // Adjust the path as necessary
-import styles from '../../styles/Pages/template1.module.scss'; // Adjust the path as necessary
+import styles from '../../styles/Pages/Template1Detail.module.scss'; // Adjust the path as necessary
 
 interface ImageSlotProps {
     id: string;

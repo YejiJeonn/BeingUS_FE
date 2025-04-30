@@ -15,7 +15,8 @@ import RankingPage from "./components/Pages/RankingPage";
 import KakaoLogin from "./components/Account/KakaoLogin";
 import KakaoCallback from "./components/Account/KakaoCallback";
 import TemplateEditor from "./components/Pages/TemplateEditor";
-import Template1 from "./components/Templates/template1";
+import Template1 from "./components/Templates/Template1";
+import Template1Detail from "./components/Templates/Template1Detail";
 
 function AppContent() {
   return (
@@ -34,6 +35,7 @@ function AppContent() {
                 <Route path="/qna" element={<QnAPage />} />
                 <Route path="/editor" element={<TemplateEditor />} />
                 <Route path="/template1" element={<Template1 />} />
+                <Route path="/templates/1" element={<Template1Detail />} />
             </Routes>
         </main>
     </div>
