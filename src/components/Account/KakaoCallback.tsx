@@ -34,8 +34,8 @@ const KakaoCallback = () => {
 
             const accessToken = response.data.access_token;
 
+            // kakao의 로그인 처리api 호출
             try{
-                console.log(accessToken);
                 const response = await axios.post("http://localhost:8080/users/kakao/login", null, {
                     params: {
                         token: accessToken // 백엔드에서 받는 파라미터 이름과 달라서 오류 발생
@@ -43,7 +43,14 @@ const KakaoCallback = () => {
                     withCredentials: true
                 });
 
-                console.log(response);
+                const token = response.data.token;   // 사용자 토큰
+                const userId = response.data.kakaoId;   // 사용자 ID
+
+                if(response.status === 200) {
+                    localStorage.setItem("token", token);   // 템플릿 저장 상태를 위해
+                    localStorage.setItem("userId", userId);   // 템플릿 저장 상태를 위해
+                }
+                
                 navigate("/");
             } catch (error) {
                 console.error("토큰 요청 중 오류 발생:", error);

@@ -8,7 +8,6 @@
   width: 375px;
   height: 667px;
   background-color: #f2f2f2;
-  border: 1px solid #ccc;
   position: relative;
   border-radius: 10px;
   overflow: hidden;
@@ -38,6 +37,7 @@
 }
 
 .fillBtn {
+  visibility: visible;
   position: absolute;
   top: 5px;
   right: 30px;
@@ -54,6 +54,7 @@
 }
 
 .closeBtn {
+  visibility: visible;
   position: absolute;
   top: 5px;
   right: 5px;
@@ -87,4 +88,12 @@
 .cropWrapper {
   max-width: 100%;
   max-height: 100%;
+}
+
+.modeBtn{
+  visibility: visible;
+}
+
+.uploadBtn{
+  visibility: visible;
 }

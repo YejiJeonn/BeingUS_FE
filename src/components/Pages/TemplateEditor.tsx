@@ -129,8 +129,8 @@ const TemplateEditor = () => {
     return (
         <div className={styles.editorWrapper}>
             <div className={styles.toolbar}>
-                <button onClick={() => fileInputRef.current?.click()}>사진 업로드</button>
-                <button onClick={toggleDrag}>
+                <button className={styles.uploadBtn} onClick={() => fileInputRef.current?.click()}>사진 업로드</button>
+                <button className={styles.modeBtn} onClick={toggleDrag}>
                     {dragable ? '자르기 모드' : '자르기 완료'}
                 </button>
 

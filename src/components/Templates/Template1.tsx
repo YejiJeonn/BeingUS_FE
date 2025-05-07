@@ -12,8 +12,11 @@ interface ImageSlotProps {
 const ImageSlot: React.FC<ImageSlotProps> = ({ id, label, imageUrl, onSave }) => {
     const [tempImage, setTempImage] = useState<string | null>(imageUrl);
     const handleSavePic = () => {
-
+        // 백엔드 api
+        // 이용자 토큰, 
     }
+
+    const isLoggedIn = !!localStorage.getItem('token');
 
     return (
         <div className="flex flex-col items-center m-2">
@@ -24,9 +27,11 @@ const ImageSlot: React.FC<ImageSlotProps> = ({ id, label, imageUrl, onSave }) =>
             <TemplateEditor/>
 
             {/*이미지 저장 버튼*/}
-            <button className={styles.btnSave} onClick={handleSavePic}>
-                save
-            </button>
+            {isLoggedIn && (
+                <button className={styles.btnSave} onClick={handleSavePic}>
+                    save
+                </button>
+            )}
         </div>
     );
 };

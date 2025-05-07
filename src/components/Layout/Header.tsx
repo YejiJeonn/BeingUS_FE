@@ -6,18 +6,19 @@ import {Link, useNavigate} from "react-router-dom";
 const Header = () => {
     const navigate = useNavigate();
 
-    const accessToken = localStorage.getItem('accessToken');
+    const isLoggedin = !!localStorage.getItem('token');
 
     // 로그아웃
     const handleLogout = () => {
         try {
             const response = axios.post('https://kapi.kakao.com/v1/user/logout', {
                 headers: {
-                    Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+                    Authorization: `Bearer ${localStorage.getItem('token')}`,
                 }
             });
 
-            localStorage.removeItem('accessToken');
+            localStorage.removeItem('token');
+            localStorage.removeItem('userId');
             alert("로그아웃 되었습니다.");
             navigate("/");
         }catch(error){
@@ -36,10 +37,14 @@ const Header = () => {
             </nav>
 
             <div className={styles.accountContainer}>
-                    <Link to="/kakao/login" className={styles.account}>
-                        <img src="/img/kakao_login_small.png" alt="kakao"/>
-                    </Link>
+                {!isLoggedin && (
+                        <Link to="/kakao/login" className={styles.account}>
+                            <img src="/img/kakao_login_small.png" alt="kakao"/>
+                        </Link>
+                )}
+                {isLoggedin && (
                     <button className={styles.account} onClick={handleLogout}>로그아웃</button>
+                )}
             </div>
         </header>
     );

@@ -1,13 +1,74 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import styles from '../../styles/Pages/Template1Detail.module.scss';
 import {useNavigate} from "react-router-dom";
+import html2canvas from "html2canvas";
+import saveAs from "file-saver";
+import Template1 from "./Template1"; // Adjust the path as necessary
 
 const Template1Detail: React.FC = () => {
     const navigate = useNavigate();
 
-    const handleTemplate1 = () => {
-        navigate("/template1");
-    }
+    // 템플릿 사진 영역지정
+    const divRef = useRef<HTMLDivElement>(null);
+
+    // 다운로드 버튼 동작
+    const handleDownload = async () => {
+        if (!divRef.current) return;
+
+        try {
+            // 실제 렌더링된 .templateImage 요소들
+            const templateImages = divRef.current.querySelectorAll('[class*="templateImage"]');
+            const modeBtns = divRef.current.querySelectorAll('[class*="modeBtn"]');
+            const uploadBtns = divRef.current.querySelectorAll('[class*="uploadBtn"]');
+            const fillBtns = divRef.current.querySelectorAll('[class*="fillBtn"]');
+            const closeBtns = divRef.current.querySelectorAll('[class*="closeBtn"]');
+
+            const bgOriginalStyles: string[] = [];
+            const visibilityMap = new Map<HTMLElement, string>();
+
+            // ✅ 배경색 변경
+            templateImages.forEach((el, idx) => {
+                const element = el as HTMLElement;
+                bgOriginalStyles[idx] = element.style.backgroundColor;
+                element.style.setProperty('background-color', '#ffffff', 'important');
+            });
+
+            // ✅ 버튼들 visibility: hidden 처리
+            [...modeBtns, ...uploadBtns, ...fillBtns, ...closeBtns].forEach((btn) => {
+                const element = btn as HTMLElement;
+                visibilityMap.set(element, element.style.visibility || '');
+                element.style.setProperty('visibility', 'hidden', 'important');
+            });
+
+            // ✅ html2canvas 렌더링
+            const canvas = await html2canvas(divRef.current, {
+                scale: 2,
+                useCORS: true,
+            });
+
+            // ✅ 배경 원복
+            templateImages.forEach((el, idx) => {
+                (el as HTMLElement).style.setProperty('background-color', bgOriginalStyles[idx] || '', 'important');
+            });
+
+            // ✅ 버튼들 visibility 원복
+            visibilityMap.forEach((original, el) => {
+                el.style.setProperty('visibility', original, 'important');
+            });
+
+            // ✅ 저장
+            canvas.toBlob((blob) => {
+                if (blob) {
+                    saveAs(blob, '/img/template1.png');
+                }
+            });
+        } catch (error) {
+            console.error('Error downloading image:', error);
+        }
+    };
+
+
+
 
     return (
         <div className={styles.wrapper}>
@@ -19,9 +80,9 @@ const Template1Detail: React.FC = () => {
                     <h2>[모던심플]</h2>
                     <h3>차분하고 정적인 테마</h3>
                     <p>
-                        흑백사진을 참조하시면 더욱 차분하고 정적인 분위기 연출이 가능합니다.<br />
-                        화려한 무늬, 레이스 소재의 드레스보다는 실크 소재, 머메이드 라인 드레스에 더 잘 어울리는 디자인입니다.<br />
-                        <br />
+                        흑백사진을 참조하시면 더욱 차분하고 정적인 분위기 연출이 가능합니다.<br/>
+                        화려한 무늬, 레이스 소재의 드레스보다는 실크 소재, 머메이드 라인 드레스에 더 잘 어울리는 디자인입니다.<br/>
+                        <br/>
                         깔끔하고 단조로운 디자인으로 오로지 사진과 내용에만 집중할 수 있는 점이 이 청첩장의 포인트입니다.
                     </p>
 
@@ -32,7 +93,7 @@ const Template1Detail: React.FC = () => {
                     </div>
 
                     <div className={styles.actionRow}>
-                        <button className={styles.previewBtn} onClick={handleTemplate1}>미리보기</button>
+                        <button className={styles.previewBtn}>미리보기</button>
                         <button className={styles.attachBtn}>첨부</button>
                     </div>
 
@@ -43,6 +104,17 @@ const Template1Detail: React.FC = () => {
                     </div>
                 </div>
             </main>
+
+            <hr/>
+
+            <div ref={divRef}>
+                <Template1/>
+            </div>
+
+            <hr/>
+
+            <button className={styles.downloadBtn} onClick={handleDownload}>다운로드</button>
+            {/*<button className={styles.saveBtn}>저장</button>*/}
         </div>
     );
 };
