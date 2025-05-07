@@ -1,10 +1,15 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowJs": true,
+
+    "target": "es2015",
     "lib": [
       "dom",
       "dom.iterable",
-      "esnext"
+      "esnext",
+      "es2015"
     ],
     "allowJs": true,
     "skipLibCheck": true,
@@ -21,6 +26,6 @@
     "jsx": "react-jsx"
   },
   "include": [
-    "src"
+    "src", "global.d.ts"
   ]
 }
