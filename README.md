@@ -25,7 +25,6 @@
     <th>FrontEnd</th>
     <th>BackEnd</th>
     <th>Database</th>
-    <th>Etc</th>
   </tr>
   <tbody>
     <tr>
@@ -48,3 +47,13 @@
     </tr>
   </tbody>
 </table>
+
+## 2. 프로젝트 구조 
+
+## 3. 프로젝트 설계
+
+### 프로젝트 ERD
+
+### 시퀀스 다이어그램
+
+## 4. 사용한 api 및 기타 사항
