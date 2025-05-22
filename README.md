@@ -13,4 +13,36 @@
 ## 1. 프로젝트 개요
 
 ### 개발기간
-> 2025.03 - 2025.05
+> 2025.03 - 2025.05 </br>
+
+### 개발 인원
+> 전예지 (1인) </br>
+
+### 개발 스택
+<table>
+  <tr>
+    <th>Environment</th>
+    <th>FrontEnd</th>
+    <th>BackEnd</th>
+    <th>Database</th>
+    <th>Etc</th>
+  </tr>
+  <tbody>
+    <tr>
+      <td>
+        <img src="https://img.shields.io/badge/IntelliJIDEA-000000.svg?style=for-the-badge&logo=intellij-idea&logoColor=white"/> </br>
+        <img src="https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white"/> </br>
+        <img src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white"/> </br>
+      </td>
+      <td>
+        <img src="https://img.shields.io/badge/Typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white"/>
+      </td>
+      <td>
+        <img src="https://img.shields.io/badge/Typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white"/>
+      </td>
+      <td>
+        <img src="https://img.shields.io/badge/DataGrip-000000.svg?style=for-the-badge&logo=datagrip&logoColor=white"/>
+      </td>
+    </tr>
+  </tbody>
+</table>
