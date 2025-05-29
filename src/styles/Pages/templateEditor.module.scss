@@ -1,0 +1,99 @@
+.editorWrapper {
+  text-align: center;
+  padding: 2rem;
+}
+
+.templateBox {
+  margin: 2rem auto;
+  width: 375px;
+  height: 667px;
+  background-color: #f2f2f2;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.templateImage {
+  width: 100%;
+  height: 100%;
+  //background-image: url('/assets/template_base.jpeg'); // 미리 만들어놓은 템플릿
+  background-color: darkgray;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+// 업로드 이미지와 버튼을 감싸는 wrapper
+.imgWrapper {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: auto;
+}
+
+.fillBtn {
+  visibility: visible;
+  position: absolute;
+  top: 5px;
+  right: 30px;
+  z-index: 20;
+  background-color: white;
+  border: 1px solid gray;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.closeBtn {
+  visibility: visible;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  z-index: 20;
+  background-color: white;
+  border: 1px solid gray;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.userPhoto {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  //object-fit: contain;
+  object-fit: fill;
+  display: block;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  pointer-events: none;
+}
+
+// 사진 자르기 영역
+.cropWrapper {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.modeBtn{
+  visibility: visible;
+}
+
+.uploadBtn{
+  visibility: visible;
+}

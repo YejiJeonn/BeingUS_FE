@@ -1,26 +1,53 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {
+    Routes,
+    Route, BrowserRouter,
+} from "react-router-dom";
+import Header from './components/Layout/Header';
+import MainPage from './components/MainPage/MainPage';
+import Login from "./components/Account/Login";
+import Signup from "./components/Account/Singup";
+import AllTemplate from "./components/Pages/AllTemplate";
+import TutorialPage from "./components/Pages/TutorialPage";
+import QnAPage from "./components/Pages/QnAPage";
+import RankingPage from "./components/Pages/RankingPage";
+import KakaoLogin from "./components/Account/KakaoLogin";
+import KakaoCallback from "./components/Account/KakaoCallback";
+import TemplateEditor from "./components/Pages/TemplateEditor";
+import Template1 from "./components/Templates/Template1";
+import Template1Detail from "./components/Templates/Template1Detail";
 
-function App() {
+function AppContent() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <Header />
+        <main>
+            <Routes>
+                <Route path="/" element={<MainPage />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/kakao/login" element={<KakaoLogin />} />
+                <Route path="/kakao/callback" element={<KakaoCallback />} />
+                <Route path="/signup" element={<Signup />} />
+                <Route path="/all" element={<AllTemplate />} />
+                <Route path="/ranking" element={<RankingPage />} />
+                <Route path="/tutorial" element={<TutorialPage />} />
+                <Route path="/qna" element={<QnAPage />} />
+                <Route path="/editor" element={<TemplateEditor />} />
+                <Route path="/template1" element={<Template1 />} />
+                <Route path="/templates/1" element={<Template1Detail />} />
+            </Routes>
+        </main>
     </div>
   );
+}
+
+function App() {
+    return (
+        <BrowserRouter>
+            <AppContent />
+        </BrowserRouter>
+    );
 }
 
 export default App;
